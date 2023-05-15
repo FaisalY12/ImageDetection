@@ -8,15 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+    
+    @State private var image : Image?
+    @State private var inputImage: UIImage?
+    @State private var showingImagePicker = false
+    @State private var text: String = ""
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        self.image = Image(uiImage: inputImage)
     }
+    
+    
+    var body: some View {
+        NavigationView {
+            VStack(alignment: .center)  {
+                GeometryReader { geo in
+                    VStack {
+                        SelectImageView(image: image)
+                            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.4)
+                            .onTapGesture {
+                                self.showingImagePicker = true
+                            }
+                            .onChange(of: inputImage) { _ in loadImage() }
+                        
+                        
+                        TextField("Translated Text", text: $text)
+                            .onTapGesture {
+                                if self.inputImage != nil {
+                                    ImageDetection.findTextInImage(image: self.inputImage!) }
+                            }
+                            .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.4)
+                            .background(Color.red)
+                    }.frame(width: geo.size.width)
+                    
+                }
+
+            }
+            .padding()
+            .sheet(isPresented: $showingImagePicker) { ImagePicker(image: self.$inputImage) }
+        }
+        
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
