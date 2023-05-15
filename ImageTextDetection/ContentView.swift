@@ -24,7 +24,7 @@ struct ContentView: View {
         NavigationView {
             VStack(alignment: .center)  {
                 GeometryReader { geo in
-                    VStack {
+                    VStack (spacing: geo.size.height * 0.05) {
                         SelectImageView(image: image)
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.4)
                             .onTapGesture {
@@ -33,13 +33,13 @@ struct ContentView: View {
                             .onChange(of: inputImage) { _ in loadImage() }
                         
                         
-                        TextField("Translated Text", text: $text)
+                        ScrollTextView(detectedText: text)
                             .onTapGesture {
                                 if self.inputImage != nil {
                                     ImageDetection.findTextInImage(image: self.inputImage!) }
                             }
                             .frame(width: geo.size.width * 0.9, height: geo.size.height * 0.4)
-                            .background(Color.red)
+                            
                     }.frame(width: geo.size.width)
                     
                 }

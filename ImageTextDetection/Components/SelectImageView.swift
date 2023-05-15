@@ -13,18 +13,22 @@ struct SelectImageView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
+            RoundedRectangle(cornerRadius: 14)
                 .fill(Color.secondary)
             
             image?
                 .resizable()
-                .scaledToFill()
+                .cornerRadius(14)
+               
             
             Text("Tap to select a picture")
                 .foregroundColor(.white)
                 .font(.headline)
             
-        }
+        }   .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(style: .init(lineWidth: 5))
+        )
     }
 }
 
