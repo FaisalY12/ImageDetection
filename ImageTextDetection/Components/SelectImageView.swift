@@ -10,6 +10,10 @@ import SwiftUI
 struct SelectImageView: View {
     
     var image : Image?
+    @Binding var inputImage : UIImage?
+    @State private var failedToLoadAlert = false
+    @State private var showingImagePicker = false
+    
     
     var body: some View {
         ZStack {
@@ -19,21 +23,28 @@ struct SelectImageView: View {
             image?
                 .resizable()
                 .cornerRadius(14)
-               
+            
             
             Text("Tap to select a picture")
                 .foregroundColor(.white)
                 .font(.headline)
+                .opacity(self.inputImage != nil ? 0.5 : 1)
             
-        }   .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(style: .init(lineWidth: 5))
+        }
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(style: .init(lineWidth: 3))
         )
+        .onTapGesture {
+            self.showingImagePicker = true
+        }
+        
+        .alert("Oops", isPresented: $failedToLoadAlert) {
+        } message: {
+            Text("Error occured while selecting image")
+        }
+        .sheet(isPresented: $showingImagePicker) { ImagePicker(image: self.$inputImage, failedtoLoad: $failedToLoadAlert) }
     }
 }
 
-struct SelectImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectImageView()
-    }
-}
+

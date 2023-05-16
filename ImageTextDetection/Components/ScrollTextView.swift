@@ -13,9 +13,10 @@ struct ScrollTextView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 14)
-                .stroke(style: .init(lineWidth: 5))
+                .stroke(style: .init(lineWidth: 3))
             ScrollView(){
                 Text("\(detectedText)")
+                    .padding(15)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }

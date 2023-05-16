@@ -17,7 +17,7 @@ class TextDetector : ObservableObject {
         case failed
     }
     
-    @Published var detectedText : String = "asdas"
+    @Published var detectedText : String = ""
     @Published private(set) var state = VisionState.idle
     
     
@@ -31,6 +31,7 @@ class TextDetector : ObservableObject {
         
         DispatchQueue.main.async {
             self.state = .loading
+            self.detectedText = ""
         }
         
         // Create a new image-request handler.
