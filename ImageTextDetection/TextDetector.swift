@@ -9,11 +9,29 @@ import Foundation
 import Vision
 import UIKit
 
-class ImageDetection {
+class TextDetector : ObservableObject {
     
-    static func findTextInImage(image : UIImage) {
+    enum VisionState {
+        case idle
+        case loading
+        case failed
+    }
+    
+    @Published var detectedText : String = "asdas"
+    @Published private(set) var state = VisionState.idle
+    
+    
+    public func findTextInImage(image : UIImage) async {
         
-        guard let cgImage = image.cgImage else { return }
+        guard let cgImage = image.cgImage else {
+            DispatchQueue.main.async {
+                self.state = .failed
+            }
+            return }
+        
+        DispatchQueue.main.async {
+            self.state = .loading
+        }
         
         // Create a new image-request handler.
         let requestHandler = VNImageRequestHandler(cgImage: cgImage)
@@ -29,17 +47,25 @@ class ImageDetection {
         }
     }
     
-    static func recognizeTextHandler(request: VNRequest, error: Error?) {
+    
+    public func recognizeTextHandler(request: VNRequest, error: Error?) {
         guard let observations =
                 request.results as? [VNRecognizedTextObservation] else {
+            DispatchQueue.main.async {
+                self.state = .failed
+            }
+            
             return
         }
         let recognizedStrings = observations.compactMap { observation in
             // Return the string of the top VNRecognizedText instance.
             return observation.topCandidates(1).first?.string
         }
+        DispatchQueue.main.async {
+            self.detectedText = recognizedStrings.joined(separator: " ")
+            self.state = .idle
+        }
         
-        print(recognizedStrings)
         
         
     }

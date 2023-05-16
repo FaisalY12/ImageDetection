@@ -11,6 +11,7 @@ import PhotosUI
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var image: UIImage?
+    @Binding var failedtoLoad : Bool
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
@@ -48,11 +49,12 @@ struct ImagePicker: UIViewControllerRepresentable {
                 itemProvider.loadObject(ofClass: type) { newImage, error in
                     if let error = error {
                         print("Can't load image \(error.localizedDescription)")
+                        self.parent.failedtoLoad = true
                     } else if let image = newImage as? UIImage {
                         self.parent.image = image
                     }
                 }
-            }
+            } else {self.parent.failedtoLoad = true}
             
         }
     }
