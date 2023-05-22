@@ -16,7 +16,7 @@ struct ScrollTextView: View {
                 .stroke(style: .init(lineWidth: 3))
             ScrollView(){
                 Text("\(detectedText)")
-                    .padding(15)
+                    .padding(20)
                     .fixedSize(horizontal: false, vertical: true)
             }
         }

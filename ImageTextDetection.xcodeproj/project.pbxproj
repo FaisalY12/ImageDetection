@@ -15,20 +15,30 @@
 		7019069C2A0D4E9600E83D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7019069B2A0D4E9600E83D28 /* Assets.xcassets */; };
 		7019069F2A0D4E9600E83D28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7019069E2A0D4E9600E83D28 /* Preview Assets.xcassets */; };
 		701906A62A0D4F2200E83D28 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701906A52A0D4F2200E83D28 /* ImagePicker.swift */; };
+		7034B2902A1BB846003E5E09 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034B28F2A1BB846003E5E09 /* CameraManager.swift */; };
+		7034B2922A1BBDF3003E5E09 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034B2912A1BBDF3003E5E09 /* CameraView.swift */; };
+		7034B2942A1BC349003E5E09 /* CustomCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034B2932A1BC349003E5E09 /* CustomCamera.swift */; };
 		703D6A182A0E83CB00A1D786 /* TextDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703D6A172A0E83CB00A1D786 /* TextDetector.swift */; };
+		7060D6032A141F09008A12A3 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7060D6022A141F09008A12A3 /* MobileNetV2.mlmodel */; };
+		7060D6052A141FBC008A12A3 /* ObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060D6042A141FBC008A12A3 /* ObjectDetector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		700B4A1A2A127794006CF67B /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
 		700B4A1C2A128DBC006CF67B /* ScrollTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTextView.swift; sourceTree = "<group>"; };
 		700B4A1E2A12C501006CF67B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		701906942A0D4E9300E83D28 /* ImageTextDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTextDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		701906942A0D4E9300E83D28 /* ImageDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		701906972A0D4E9400E83D28 /* ImageTextDetectionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextDetectionApp.swift; sourceTree = "<group>"; };
 		701906992A0D4E9400E83D28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7019069B2A0D4E9600E83D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7019069E2A0D4E9600E83D28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		701906A52A0D4F2200E83D28 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7034B28F2A1BB846003E5E09 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		7034B2912A1BBDF3003E5E09 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		7034B2932A1BC349003E5E09 /* CustomCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCamera.swift; sourceTree = "<group>"; };
 		703D6A172A0E83CB00A1D786 /* TextDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDetector.swift; sourceTree = "<group>"; };
+		7060D6022A141F09008A12A3 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		7060D6042A141FBC008A12A3 /* ObjectDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDetector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,8 @@
 			children = (
 				701906A52A0D4F2200E83D28 /* ImagePicker.swift */,
 				700B4A1A2A127794006CF67B /* SelectImageView.swift */,
+				7034B2912A1BBDF3003E5E09 /* CameraView.swift */,
+				7034B2932A1BC349003E5E09 /* CustomCamera.swift */,
 				700B4A1E2A12C501006CF67B /* ButtonView.swift */,
 				700B4A1C2A128DBC006CF67B /* ScrollTextView.swift */,
 			);
@@ -64,7 +76,7 @@
 		701906952A0D4E9300E83D28 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				701906942A0D4E9300E83D28 /* ImageTextDetection.app */,
+				701906942A0D4E9300E83D28 /* ImageDetection.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,10 +84,11 @@
 		701906962A0D4E9300E83D28 /* ImageTextDetection */ = {
 			isa = PBXGroup;
 			children = (
+				7060D6022A141F09008A12A3 /* MobileNetV2.mlmodel */,
 				701906972A0D4E9400E83D28 /* ImageTextDetectionApp.swift */,
 				701906992A0D4E9400E83D28 /* ContentView.swift */,
 				700B4A192A12775A006CF67B /* Components */,
-				703D6A172A0E83CB00A1D786 /* TextDetector.swift */,
+				7060D6012A141EBD008A12A3 /* Managers */,
 				7019069B2A0D4E9600E83D28 /* Assets.xcassets */,
 				7019069D2A0D4E9600E83D28 /* Preview Content */,
 			);
@@ -88,6 +101,16 @@
 				7019069E2A0D4E9600E83D28 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7060D6012A141EBD008A12A3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7034B28F2A1BB846003E5E09 /* CameraManager.swift */,
+				703D6A172A0E83CB00A1D786 /* TextDetector.swift */,
+				7060D6042A141FBC008A12A3 /* ObjectDetector.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,7 +130,7 @@
 			);
 			name = ImageTextDetection;
 			productName = ImageTextDetection;
-			productReference = 701906942A0D4E9300E83D28 /* ImageTextDetection.app */;
+			productReference = 701906942A0D4E9300E83D28 /* ImageDetection.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,10 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7060D6052A141FBC008A12A3 /* ObjectDetector.swift in Sources */,
+				7034B2942A1BC349003E5E09 /* CustomCamera.swift in Sources */,
 				700B4A1F2A12C501006CF67B /* ButtonView.swift in Sources */,
 				701906A62A0D4F2200E83D28 /* ImagePicker.swift in Sources */,
+				7060D6032A141F09008A12A3 /* MobileNetV2.mlmodel in Sources */,
+				7034B2902A1BB846003E5E09 /* CameraManager.swift in Sources */,
 				703D6A182A0E83CB00A1D786 /* TextDetector.swift in Sources */,
 				7019069A2A0D4E9400E83D28 /* ContentView.swift in Sources */,
+				7034B2922A1BBDF3003E5E09 /* CameraView.swift in Sources */,
 				700B4A1D2A128DBC006CF67B /* ScrollTextView.swift in Sources */,
 				700B4A1B2A127794006CF67B /* SelectImageView.swift in Sources */,
 				701906982A0D4E9400E83D28 /* ImageTextDetectionApp.swift in Sources */,
@@ -293,10 +321,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageTextDetection/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take Photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,7 +338,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faisal.ImageTextDetection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ImageDetection;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,10 +351,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				COREML_CODEGEN_LANGUAGE = Swift;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ImageTextDetection/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Take Photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -336,7 +368,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.faisal.ImageTextDetection;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ImageDetection;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

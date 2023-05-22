@@ -13,37 +13,61 @@ struct ButtonView: View {
     @Binding public var inputImage: UIImage?;
     @State private var showingDetectAlert = false
     @ObservedObject var textDetector : TextDetector
+    @ObservedObject var objectDetector : ObjectDetector
     
     var body: some View {
-        
-        Button {
-            if self.inputImage != nil {
-                Task .detached {
-                    await textDetector.findTextInImage(image: self.inputImage!)
+        HStack{
+            Button {
+                if self.inputImage != nil {
+                    objectDetector.detectedText = ""
+                    Task .detached {
+                        await textDetector.findTextInImage(image: self.inputImage!)
+                    }
+                    if textDetector.state == .failed {
+                        showingDetectAlert.toggle()
+                    }
+                    return
                 }
-                if textDetector.state == .failed {
-                    showingDetectAlert.toggle()
-                }
-                return
-            }
-            
-        }label : {
-            
-            switch textDetector.state {
                 
-            case .loading:
-                ProgressView()
-                    .progressViewStyle(LoadingProgess())
-            default :
-                Text("Get Text")
-            }
+            } label : {
+                
+                switch textDetector.state {
+                    
+                case .loading:
+                    ProgressView()
+                        .progressViewStyle(LoadingProgess())
+                default :
+                    Text("Get Text")
+                }
+                
+            }.buttonStyle(GrowingButton())
+            
+            Button {
+                if self.inputImage != nil {
+                    textDetector.detectedText = ""
+                    Task .detached {
+                        await self.objectDetector.findObjectInImage(image: self.inputImage!)
+                    }
+                }
+            } label : {
+                
+                switch objectDetector.state {
+                    
+                case .loading:
+                    ProgressView()
+                        .progressViewStyle(LoadingProgess())
+                default :
+                    Text("Get Object")
+                }
+                
+            }.buttonStyle(GrowingButton())
             
         }.disabled(textDetector.state == .loading ? true : false)
-        .buttonStyle(GrowingButton())
-        .alert("Oops", isPresented: $showingDetectAlert) {
-        } message: {
-            Text("Error occured while detecting text")
-        }
+            .opacity(textDetector.state == .loading ? 0.7 : 1)
+            .alert("Oops", isPresented: $showingDetectAlert) {
+            } message: {
+                Text("Error occured while detecting text")
+            }
     }
 }
 
